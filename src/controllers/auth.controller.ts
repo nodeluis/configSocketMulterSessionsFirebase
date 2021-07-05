@@ -27,6 +27,7 @@ class AuthController {
   public createUserXpress = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const userData: CreateUserXpressDto = req.body;
+      console.log(userData);
       
       const createUser: User = await this.authService.createUserXpress(userData);
 

@@ -16,7 +16,11 @@ class IndexController {
   public getFile = async (req: Request, res: Response, next: NextFunction)=>{
     const data:string=req.params.data;
     const file:string=await this.storageService.resolvePath(data);
-    res.status(200).redirect(file);
+    
+    //google storage
+    //res.status(200).redirect(file);
+
+    res.status(200).sendFile(file);
   };
 
 }

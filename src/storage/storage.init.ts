@@ -1,5 +1,5 @@
 import {diskStorage,StorageEngine} from 'multer';
-import {Storage} from '@google-cloud/storage';
+import {Storage,Bucket} from '@google-cloud/storage';
 import {Request} from 'express';
 import fs from 'fs';
 import config from 'config';
@@ -33,9 +33,9 @@ export const fileFilter = (req: Request, file: Express.Multer.File, cb:(error: E
     cb(null, true);
 }
 
-export const googleStorage=new Storage({
+export const googleStorage:Storage=new Storage({
     keyFilename:__dirname + '/../jsons/google_storage.json',
     projectId:'rosy-environs-268816'
 });
 
-export const bucket=googleStorage.bucket(process.env.GCLOUD_STORAGE_BUCKET||'mercadoxpressfiles');
+export const bucket:Bucket=googleStorage.bucket(process.env.GCLOUD_STORAGE_BUCKET||'mercadoxpressfiles');

@@ -82,8 +82,8 @@ class App {
     this.app.use(helmet());
     this.app.use(compression());
     this.app.use(express.json());
-    //this.app.use(multer({ storage: fileStorage, fileFilter: fileFilter }).array('img',15));
-    this.app.use(multer({ storage: multer.memoryStorage(), fileFilter: fileFilter }).array('img',15));
+    this.app.use(multer({ storage: fileStorage, fileFilter: fileFilter }).array('img',15));
+    //this.app.use(multer({ storage: multer.memoryStorage(), fileFilter: fileFilter }).array('img',15));
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(cookieParser());
     this.app.use(session({
